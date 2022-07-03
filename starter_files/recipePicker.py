@@ -4,6 +4,9 @@ from PIL import ImageTk
 
 bg_color = "#3d6466"
 
+def load_frame2():
+    pass
+
 # initialize app
 root = tk.Tk()
 root.title("Recipe Picker")
@@ -25,6 +28,19 @@ tk.Label(frame1,
          fg="white",
          font=("TkMenuFont", 14)
          ).pack()
+
+# button widget
+tk.Button(
+        frame1,
+        text="SHUFFLE",
+        font=("TkHeadingFont", 20),
+        bg="#28392a",
+        fg="white",
+        cursor="hand2",
+        activebackground="#badee2",
+        activeforeground="black",
+        command=load_frame2()
+        ).pack()
 
 # run app
 root.mainloop()
