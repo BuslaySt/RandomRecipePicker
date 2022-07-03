@@ -17,11 +17,15 @@ def fetch_db():
     # fetch ingredients
     table_name = all_tables[idx][1]
     cursor.execute("SELECT * FROM " + table_name + ";")
-    ingredients = cursor.fetchall()
+    table_records = cursor.fetchall()
 
-    print(ingredients)
-    print(table_name)
     connection.close()
+    return table_name, table_records
+
+def pre_process(table_name, table_records):
+    title = table_name[:-6]
+    title = "".join([char if char.islower() else " " + char for char in title])
+    print(title)
 
 def load_frame1():
     frame1.pack_propagate(False)
@@ -53,7 +57,8 @@ def load_frame1():
             ).pack(pady=20)
 
 def load_frame2():
-    fetch_db()
+    table_name, table_records = fetch_db()
+    pre_process(table_name, table_records)
 
 # initialize app
 root = tk.Tk()
