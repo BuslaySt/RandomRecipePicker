@@ -26,14 +26,15 @@ def fetch_db():
     table_records = cursor.fetchall()
 
     connection.close()
+
     return table_name, table_records
 
 def pre_process(table_name, table_records):
-    # title
+    # preprocess title
     title = table_name[:-6]
     title = "".join([char if char.islower() else " " + char for char in title])
 
-    # ingredients
+    # preprocess ingredients
     ingredients = []
     for i in table_records:
         name = i[1]
@@ -92,7 +93,7 @@ def load_frame2():
         bg=bg_color,
         fg="white",
         font=("Ubuntu", 20)
-        ).pack(pady=25)
+        ).pack(pady=25, padx=25)
 
     for i in ingredients:
         tk.Label(frame2,
