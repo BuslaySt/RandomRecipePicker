@@ -19,5 +19,12 @@ logo_widget = tk.Label(frame1, image=logo_img, bg=bg_color)
 logo_widget.image = logo_img
 logo_widget.pack()
 
+tk.Label(frame1,
+         text="ready for your random recipe?",
+         bg=bg_color,
+         fg="white",
+         font=("TkMenuFont", 14)
+         ).pack()
+
 # run app
 root.mainloop()
